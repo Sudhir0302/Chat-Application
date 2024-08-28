@@ -1,8 +1,12 @@
 import './App.css';
+import Chatspace from './Chatspace';
 
-function App() {
+function App() 
+{
   return (
-    <h1>Helloooo</h1>
+    <div>
+      <Chatspace />
+    </div>
   );
 }
 
