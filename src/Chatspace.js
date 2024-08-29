@@ -1,29 +1,46 @@
 import React, { useState } from 'react'
+import "./App.css";
 
 const Chatspace = () => {
     const [Msg,setMsg]=useState('')
-    const [Submittedmsg,setSubmittedmsg]=useState('Your chat is empty')
+    const [Servermsg,setServermsg]=useState(['Not connected'])
+    const [Submittedmsg,setSubmittedmsg]=useState(['Your chat is empty'])
     function handleSubmit(e)
     {
-        e.preventDefault();
-        setSubmittedmsg(Msg)
-        setMsg('')
+        e.preventDefault()
+        if(Submittedmsg[0]==='Your chat is empty'){
+            setSubmittedmsg([Msg])
+            setMsg('')
+        }else{
+            setSubmittedmsg([...Submittedmsg, Msg]);
+            setMsg('')
+        }
     }
-  return (
-    <div>
+    let sender=""
+    if(Submittedmsg[0]!=='Your chat is empty'){
+        sender="Sender: "
+    }
+    let server="server: "
+    return (
+    <div className='main'>
         <div className='display'>
-            <h1>
-                {Submittedmsg}
-            </h1>
+            {Submittedmsg.map((msg, index) => (
+                <>
+                <p key={index}>{sender}{msg}</p>
+                {Servermsg.map((msg, index) => (
+                    <p key={index}>{server}{msg}</p>
+                ))}
+                </>
+            ))}
         </div><br></br><br></br>
         <form onSubmit={handleSubmit}>
-            <input 
+            <input className='input'
                 type='text' 
                 placeholder='Enter a message' 
                 value={Msg} 
                 onChange={(e)=>setMsg(e.target.value)}
             />
-            <button type='submit'>send</button>
+            <button className="send" type='submit'>send</button>
         </form>
     </div>
   )
