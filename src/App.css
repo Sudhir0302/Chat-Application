@@ -1,11 +1,17 @@
 .display {
-    background-color: #f0f0f0;
-    width: 350px;
+    background-color: #f5f5f5;
+    width: 100%;
+    max-width: 350px;
     height: 300px;
     font-size: 20px;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    color: #333;
+    line-height: 1.6;
 }
 
 .input {
