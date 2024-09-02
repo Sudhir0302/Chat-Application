@@ -1,49 +1,67 @@
-.display {
-    background-color: #f5f5f5;
-    width: 100%;
-    max-width: 350px;
-    height: 300px;
-    font-size: 20px;
-    padding: 15px;
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.main {
+    width: 400px;
+    height: 600px;
+    border: 1px solid #ccc;
     border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.display {
+    flex: 1;
+    padding: 10px;
     overflow-y: auto;
-    border: 1px solid #ddd;
-    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.message {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f1f0f0;
+}
+
+.message strong {
     color: #333;
-    line-height: 1.6;
+}
+
+.message-input {
+    display: flex;
+    border-top: 1px solid #ddd;
 }
 
 .input {
-    width: 350px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 18px;
-    padding: 8px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: background-color 0.3s, font-size 0.3s;
-}
-
-.input:hover,
-.input:focus {
-    background-color: #e0e0e0;
-    color: black;
-    font-size: 20px;
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 0;
     outline: none;
 }
 
 .send {
-    font-size: 18px;
-    background-color: lightgreen;
-    padding: 8px 16px;
-    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 0;
+    transition: background-color 0.3s ease;
 }
 
 .send:hover {
-    background-color: rgb(22, 153, 22);
+    background-color: #0056b3;
 }
