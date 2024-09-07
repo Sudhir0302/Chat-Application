@@ -1,7 +1,7 @@
 /* General styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #00b4db, #0083b0);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,29 +10,58 @@ body {
 }
 
 .main {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 600px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .display {
     flex: 1;
-    padding: 10px;
+    padding: 15px;
     overflow-y: auto;
     border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+}
+
+.display::-webkit-scrollbar {
+    width: 6px;
+}
+
+.display::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
 }
 
 .message {
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+    background-color: #e6e6e6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Differentiate user and server messages */
+.message.user {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+}
+
+.message.server {
     background-color: #f1f0f0;
+    color: black;
+    align-self: flex-start;
 }
 
 .message strong {
@@ -42,26 +71,39 @@ body {
 .message-input {
     display: flex;
     border-top: 1px solid #ddd;
+    background-color: #fff;
 }
 
 .input {
     flex: 1;
-    padding: 10px;
+    padding: 15px;
     border: none;
-    border-radius: 0;
     outline: none;
+    font-size: 16px;
+    background-color: #f0f2f5;
 }
 
 .send {
-    padding: 10px 20px;
-    background-color: #007bff;
+    padding: 15px;
+    background-color: #28a745;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 0;
     transition: background-color 0.3s ease;
+    font-size: 16px;
+    border-radius: 0 15px 15px 0;
 }
 
 .send:hover {
-    background-color: #0056b3;
+    background-color: #218838;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+    .main {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
 }
