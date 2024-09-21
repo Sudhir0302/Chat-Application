@@ -1,5 +1,5 @@
-import './App.css';
 import Chatspace from './Chatspace';
+import Register from './Register';
 
 function App() 
 {

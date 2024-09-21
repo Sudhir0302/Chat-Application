@@ -1,17 +1,25 @@
-import React from 'react';
-import "./App.css";
+import React, { useState } from 'react';
 
-const MessageInput = ({ Msg, setMsg, handleSubmit }) => {
+const MessageInput = ({retriveData}) => {
+
+    const[msg,setMsg]=useState("");
+    const handleData=(e)=>{
+        e.preventDefault();
+        retriveData(msg);
+        setMsg("")
+    }
     return (
-        <form onSubmit={handleSubmit} className="message-input">
-            <input     //input text box
-                className='input'
+        <form className="message-input" onSubmit={handleData}>
+            <input
+                className='text-black'
                 type='text'
                 placeholder='Enter a message'
-                value={Msg}
-                onChange={(e) => setMsg(e.target.value)}
+                value={msg}
+                onChange={(e) => 
+                    setMsg(e.target.value)
+                }
             />
-            <button className="send" type='submit'>Send</button>
+            <button className="bg-green-400 rounded-lg w-14" type='submit'>Send</button>
         </form>
     );
 }
